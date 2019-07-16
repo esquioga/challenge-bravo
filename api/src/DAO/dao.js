@@ -9,8 +9,7 @@ class AppDAO {
 				console.log('Error connecting to DB: ', err);
 			} else {
 				console.log('Connected to DB.');
-				console.log(this.createTable());
-				console.log(this.getData());
+				this.createTable();
 			} 
 		});
 	}
@@ -19,17 +18,28 @@ class AppDAO {
 		const sql = `
 			CREATE TABLE IF NOT EXISTS currency(
 				id INTEGER PRIMARY KEY AUTOINCREMENT,
-				name TEXT NOT NULL,
+				name TEXT NOT NULL UNIQUE,
 				rate REAL NOT NULL
 			)`;
 		return this.db.run(sql);
 	}
 
-	getData() {
+	getData(callback) {
 		const sql = `
 			SELECT * FROM currency	
 		`
-		return this.db.all(sql);
+		this.db.all(sql, callback);
+	}
+
+	insertValue(name, value) {
+		const sql = `
+			INSERT INTO currency
+			(name, rate)
+			VALUES(?, ?)
+		`
+		this.db.run(sql, [name, value], (err) => {
+			if(err) console.log('Error inserting obj: ', err);
+		})
 	}
 
 }

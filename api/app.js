@@ -1,9 +1,13 @@
 import express from 'express';
-import AppDAO from './src/dao.js';
+import AppDAO from './src/DAO/dao.js';
+import Currencies from './src/obj/currencies.js';
+import request from 'request';
 
 const app = express();
-const appDAO = new AppDAO('./db/test.sqlite');
-console.log(appDAO);
+
+const dao = new AppDAO('./db/test.sqlite');
+
+const cur = new Currencies(dao);
 
 app.get('/', (req, res) => {
 	res.send("Hello Babel");
