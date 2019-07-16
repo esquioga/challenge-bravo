@@ -1,0 +1,32 @@
+{
+  "name": "challenge-bravo",
+  "version": "0.0.1",
+  "description": "API para conversão de valores nas moedas USD, BRL, EUR, BTC e ETH.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node app.js",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/esquioga/challenge-bravo.git"
+  },
+  "author": "João Esquioga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/esquioga/challenge-bravo/issues"
+  },
+  "homepage": "https://github.com/esquioga/challenge-bravo#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "sqlite3": "^4.0.9"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/node": "^7.5.0",
+    "@babel/preset-env": "^7.5.4",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "nodemon": "^1.19.1"
+  }
+}
