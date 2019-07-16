@@ -18,4 +18,3 @@ API Conversor de moedas
 
 	- Nodejs
 	- SQLite
-	- Open exchange rates API
